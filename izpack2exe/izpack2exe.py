@@ -30,7 +30,7 @@ def parse_options():
                       default="setup.exe",
                       help="The executable file")
     parser.add_option("--with-7z", action="store", dest="p7z",
-                      default="7z",
+                      default="7za",
                       help="Path to the 7-Zip executable")
     parser.add_option("--with-upx", action="store", dest="upx",
                       default="upx",
