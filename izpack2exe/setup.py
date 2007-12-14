@@ -24,7 +24,7 @@ import py2exe
 setup(
   console = [{
     'script': 'izpack2exe.py',
-    'icon_resources': [(0, 'izpack.ico')]
+    'icon_resources': [(0, 'app.ico')]
   }],
   script_args=['py2exe', '--bundle-files', '1']
 )
