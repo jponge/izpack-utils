@@ -44,6 +44,7 @@ def parse_options():
     return options    
 
 def create_exe(settings):
+    filename = os.path.basename(settings.file)
     p7z = '"%s" a -t7z -mx=9 -ms=off installer.7z %s' % (settings.p7z, settings.file)
     os.system(p7z)
 
@@ -51,7 +52,7 @@ def create_exe(settings):
     config.write(';!@Install@!UTF-8!\r\n')
     config.write('Title="IzPack"\r\n')
     config.write('Progress="yes"\r\n')
-    config.write('ExecuteFile="%s"\r\n' % settings.file)
+    config.write('ExecuteFile="%s"\r\n' % filename)
     config.write(';!@InstallEnd@!\r\n')
     config.close()
 
