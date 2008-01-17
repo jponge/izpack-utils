@@ -56,7 +56,8 @@ def create_exe(settings):
     config.write(';!@InstallEnd@!\r\n')
     config.close()
 
-    files = ['7zS.sfx', 'config.txt', 'installer.7z']
+    sfx = os.path.join(os.path.dirname(settings.p7z), '7zS.sfx')
+    files = [sfx, 'config.txt', 'installer.7z']
     output = open(settings.output, 'wb')
     for f in files:
         in_file = open(f, 'rb')
