@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # ........................................................................... #
 #
-# IzPack - 2007 Julien Ponge, All Rights Reserved.
+# IzPack - 2007, 2008 Julien Ponge, All Rights Reserved.
 #
 # http://izpack.org/
 # http://developer.berlios.de/projects/izpack/
