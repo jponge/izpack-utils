@@ -23,12 +23,13 @@ import sys
 from shutil import *
 
 def main():
+	base = os.path.dirname(sys.argv[0])
 	jar = sys.argv[1]
 	jar_name = os.path.basename(jar)
 	app = sys.argv[2]
 	
 	if os.path.exists(app): rmtree(app)
-	copytree('Mac-App-Template', app)
+	copytree('%s/Mac-App-Template' % base, app)
 	copy(jar, '%s/Contents/Resources/Java/' % app)
 
 	def reducer(str, line):
