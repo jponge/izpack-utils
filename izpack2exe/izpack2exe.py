@@ -52,7 +52,7 @@ def create_exe(settings):
     config.write(';!@Install@!UTF-8!\r\n')
     config.write('Title="IzPack"\r\n')
     config.write('Progress="yes"\r\n')
-    config.write('RunProgram="java -jar %s"\r\n' % filename)
+    config.write('ExecuteFile="%s"\r\n' % filename)
     config.write(';!@InstallEnd@!\r\n')
     config.close()
 
