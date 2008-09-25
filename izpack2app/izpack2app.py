@@ -23,22 +23,25 @@ import sys
 from shutil import *
 
 def main():
-	base = os.path.dirname(sys.argv[0])
+	base = os.path.dirname(__file__)
 	jar = sys.argv[1]
 	jar_name = os.path.basename(jar)
 	app = sys.argv[2]
 	
 	if os.path.exists(app): rmtree(app)
-	copytree('%s/Mac-App-Template' % base, app)
-	copy(jar, '%s/Contents/Resources/Java/' % app)
+	copytree(os.path.join(base, 'Mac-App-Template'), app)
+	java_folder = os.path.join(app, 'Contents/Resources/Java/')
+	os.mkdir(java_folder)
+	copy(jar, java_folder)
 
 	def reducer(str, line):
 		return str + line
 
-	plist = open('%s/Contents/Info.plist' % app, 'r')
+	plist_path = os.path.join(app, 'Contents/Info.plist')
+	plist = open(plist_path, 'r')
 	plist_content = reduce(reducer, plist.readlines(), '').replace('__JAR__', jar_name)
 	plist.close()
-	plist = open('%s/Contents/Info.plist' % app, 'w')
+	plist = open(plist_path, 'w')
 	plist.write(plist_content)
 	plist.close()
 	
