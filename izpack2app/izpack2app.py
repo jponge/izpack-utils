@@ -31,7 +31,7 @@ def main():
 	if os.path.exists(app): rmtree(app)
 	copytree(os.path.join(base, 'Mac-App-Template'), app)
 	java_folder = os.path.join(app, 'Contents/Resources/Java/')
-	os.mkdir(java_folder)
+	if not os.path.exists(java_folder): os.mkdir(java_folder)
 	copy(jar, java_folder)
 
 	def reducer(str, line):
